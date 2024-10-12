@@ -61,8 +61,8 @@ jobs:
             type=semver,pattern=v{{major}}.{{minor}}
             type=ref,event=branch
           images: |
-            ${{ github.repository_owner == 'jacobalberty' && 'jacobalberty/unifi' }}
-            ghcr.io/${{ github.repository }}
+            name=jacobalberty/unifi,enable=${{ github.repository_owner == 'jacobalberty' }}
+            name=ghcr.io/${{ github.repository }}
       - name: Build container image
         uses: docker/build-push-action@v4
         with:
